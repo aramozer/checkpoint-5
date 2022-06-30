@@ -1,15 +1,11 @@
 import requests
 
-r = requests.get('http://localhost:5000/api?action=phone&name=Urban')
-r.text
 
-n = requests.get('http://localhost:5000/api?action=name&phone=0435-4355438')
-n.text
 
-def get_phone(name):
-    if name == "Urban":
-        return r.text
+def get_phone(get_phone):
+    phone = requests.get(f'http://localhost:5000/api?action=phone&name={get_phone}')
+    return phone.text
 
-def get_name(phone):
-    if phone == "0435-4355438":
-        return n.text
+def get_name(get_name):
+    name = requests.get(f'http://localhost:5000/api?action=name&phone={get_name}')
+    return name.text
